@@ -2,6 +2,31 @@
 <resources>
 
     <string name="app_name">ABeCeDe</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="buttonA">Aa</string>
+    <string name="buttonB">Bb</string>
+    <string name="buttonC">Cc</string>
+    <string name="buttonD">Dd</string>
+    <string name="buttonE">Ee</string>
+    <string name="buttonF">Ff</string>
+    <string name="buttonG">Gg</string>
+    <string name="buttonH">Hh</string>
+    <string name="buttonI">Ii</string>
+    <string name="buttonJ">Jj</string>
+    <string name="buttonK">Kk</string>
+    <string name="buttonL">Ll</string>
+    <string name="buttonM">Mm</string>
+    <string name="buttonN">Nn</string>
+    <string name="buttonO">Oo</string>
+    <string name="buttonP">Pp</string>
+    <string name="buttonQ">Qq</string>
+    <string name="buttonR">Rr</string>
+    <string name="buttonS">Ss</string>
+    <string name="buttonT">Tt</string>
+    <string name="buttonU">Uu</string>
+    <string name="buttonV">Vv</string>
+    <string name="buttonW">Ww</string>
+    <string name="buttonX">Xx</string>
+    <string name="buttonY">Yy</string>
+    <string name="buttonZ">Zz</string>
 
 </resources>
