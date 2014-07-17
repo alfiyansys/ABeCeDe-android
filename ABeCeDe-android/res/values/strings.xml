@@ -28,5 +28,7 @@
     <string name="buttonX">Xx</string>
     <string name="buttonY">Yy</string>
     <string name="buttonZ">Zz</string>
+    <string name="title_activity_huruf">Huruf</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
