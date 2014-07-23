@@ -22,7 +22,8 @@ public class MySQLHelper extends SQLiteOpenHelper {
 		//1st table
 		String sql = "create table benda(" +
 				"_id integer primary key autoincrement," +
-				"nama text not null" +
+				"nama text not null," +
+				"eja text not null" +
 				")";
 		db.execSQL(sql);
 		Log.d("Data", sql);

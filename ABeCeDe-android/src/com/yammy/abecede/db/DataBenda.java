@@ -9,14 +9,14 @@ public class DataBenda {
 	List<Benda> data = new ArrayList<Benda>();
 	
 	public DataBenda(){
-		data.add(new Benda("Apel"));
-		data.add(new Benda("Batu"));
+		data.add(new Benda("Apel", "a-pel"));
+		data.add(new Benda("Batu", "ba-tu"));
 	}
 	
 	public void executeDB(SQLiteDatabase db){
 		String sql;
 		for(Benda element: this.data){
-			sql = "insert into benda(nama) values('"+element.nama+"')";
+			sql = "insert into benda(nama,eja) values('"+element.nama+"','"+element.eja+"')";
 			db.execSQL(sql);
 		}
 	}
@@ -24,7 +24,9 @@ public class DataBenda {
 
 class Benda{
 	String nama;
-	public Benda(String nama){
+	String eja;
+	public Benda(String nama, String eja){
 		this.nama = nama;
+		this.eja = eja;
 	}
 }
