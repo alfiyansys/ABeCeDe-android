@@ -11,6 +11,7 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -30,19 +31,33 @@ public class Huruf extends Activity implements OnInitListener {
 	protected ListAdapter adapter;
 	Cursor mainCursor;
 	TextToSpeech tts;
+	Button playHuruf;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		int hurufNum;
+		final int hurufNum;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_huruf);
 		
 		tts = new TextToSpeech(this,this);
 		
 		hurufView = (TextView) this.findViewById(R.id.teksGede);
+		
 		bundle = getIntent().getExtras();
 		hurufNum = bundle.getInt("huruf");
 		hurufView.setText(determineHuruf(hurufNum,2));
+		
+		playHuruf = (Button) this.findViewById(R.id.buttonPlayHuruf);
+		this.playHuruf.setOnClickListener(new View.OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				if(tts != null){
+					if (!tts.isSpeaking()){
+						tts.speak(determineHuruf(hurufNum,1), TextToSpeech.QUEUE_FLUSH, null);
+					}
+				}
+			}
+		});
 		
 		this.kataList = (ListView) this.findViewById(R.id.LV1);
         this.kataList.setSelected(true);
