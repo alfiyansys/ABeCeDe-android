@@ -1,13 +1,22 @@
 package com.yammy.abecede;
 
+import java.util.Locale;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.OnInitListener;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnInitListener {
 	Button buttonhuruf[];
+	Button ucapButton;
+	EditText ucapText;
+	TextToSpeech tts;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +50,11 @@ public class MainActivity extends Activity {
         buttonhuruf[24] = (Button) this.findViewById(R.id.button25);
         buttonhuruf[25] = (Button) this.findViewById(R.id.button26);
         
+        ucapButton = (Button) this.findViewById(R.id.execUcap);
+        ucapText = (EditText) this.findViewById(R.id.editUcap);
+        
+        tts = new TextToSpeech(this,this);
+        
         for(int i=0;i<buttonhuruf.length;i++){
         	final int n = i;
         	buttonhuruf[i].setOnClickListener(new View.OnClickListener() {	
@@ -52,5 +66,35 @@ public class MainActivity extends Activity {
 				}
 			});
         }
+        
+        this.ucapButton.setOnClickListener(new View.OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				if(tts != null){
+					if (!tts.isSpeaking()){
+						tts.speak(ucapText.getText().toString(), TextToSpeech.QUEUE_FLUSH, null);
+					}
+				}
+			}
+		});
     }
+
+	@Override
+	public void onInit(int status) {
+		// TODO Auto-generated method stub
+		if(status == TextToSpeech.SUCCESS){
+			tts.setLanguage(Locale.getDefault());
+		}else{
+			Toast.makeText(this, "TTS error", Toast.LENGTH_SHORT).show();
+		}
+	}
+	
+	@Override
+	protected void onDestroy(){
+		if(tts != null){
+			tts.stop();
+			tts.shutdown();
+		}
+		super.onDestroy();
+	}
 }

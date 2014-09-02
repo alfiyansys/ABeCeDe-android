@@ -31,5 +31,7 @@
     <string name="buttonMainkanHuruf">Mainkan</string>
     <string name="title_activity_huruf">Huruf</string>
     <string name="hello_world">Hello world!</string>
+    <string name="inptexthere">Masukkan kata di sini</string>
+    <string name="ucapkan">Ucapkan</string>
 
 </resources>
